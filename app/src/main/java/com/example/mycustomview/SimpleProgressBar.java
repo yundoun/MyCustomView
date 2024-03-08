@@ -41,9 +41,6 @@ public class SimpleProgressBar extends View {
         Log.d(tag, "onAttachedToWindow() 호출됨");
     }
 
-
-    // measure() : View의 크기를 결정
-
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         // 여기서 CustomView의 크기를 결정
@@ -81,27 +78,26 @@ public class SimpleProgressBar extends View {
         setMeasuredDimension(width, height);
     }
 
-    // layout() : 뷰의 위치를 결정하는 역할
-
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
-        // 일반적으로 CustomView에서는 이 메소드를 구현할 필요가 없습니다.
-        // View가 자식 View를 포함하지 않기 때문입니다.
+        // 일반적으로 CustomView에서는 이 메소드를 구현할 필요가 없다
+        // View가 자식 View를 포함하지 않기 때문
         Log.d(tag, "onLayout() 호출됨");
     }
 
     @Override
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
+        // View를 확장하고 자식 뷰를 포함하지 않기 때문에 현재 필요하진 않음
+        // ViewGruop에서 자식 뷰들의 그리기를 관리할 때 사용함
         Log.d(tag, "dispatchDraw() 호출됨");
     }
-
-    // draw() : 자식 뷰 그리기
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         // 실제로 View를 그리는 로직
+        // draw()에서 호출됨
         float width = (getWidth() * progress) / 100;
         canvas.drawRect(0, 0, width, getHeight(), paint);
 

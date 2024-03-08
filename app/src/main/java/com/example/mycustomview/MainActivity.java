@@ -25,6 +25,6 @@ public class MainActivity extends AppCompatActivity {
             progressBar.setProgress(0);
         });
 
-        progressBar.setProgress(10); // 초기 진행상태 설정
+        //progressBar.setProgress(10); // 초기 진행상태 설정
     }
 }
